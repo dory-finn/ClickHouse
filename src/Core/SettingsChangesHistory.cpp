@@ -49,6 +49,7 @@ const VersionToSettingsChangesMap & getSettingsChangesHistory()
             {"use_partition_key", true, true, "Alias for setting 'use_partition_pruning'."},
             {"mysql_datatypes_support_level", "", "decimal,datetime64,date2Date32", "Enable modern MySQL type mappings by default."},
             {"allow_experimental_json_lazy_type_hints", false, false, "New experimental setting for lazy JSON type hints"},
+            {"iceberg_metadata_staleness_seconds", 0, 0, "New setting to allow reading of stale iceberg metadata without accessing remote catalog"},
         });
         addSettingsChanges(settings_changes_history, "26.2",
         {
@@ -80,7 +81,6 @@ const VersionToSettingsChangesMap & getSettingsChangesHistory()
             {"jemalloc_profile_text_symbolize_with_inline", true, true, "New setting to control whether to include inline frames when symbolizing jemalloc heap profile. When enabled, inline frames are included at the cost of slower symbolization; when disabled, they are skipped for faster output"},
             {"jemalloc_profile_text_collapsed_use_count", false, false, "New setting to aggregate by allocation count instead of bytes in the collapsed jemalloc heap profile format"},
             {"opentelemetry_start_keeper_trace_probability", "auto", "auto", "New setting"},
-            {"iceberg_metadata_staleness_seconds", 0, 0, "New setting to allow reading of stale iceberg metadata without accessing remote catalog"},
         });
         addSettingsChanges(settings_changes_history, "26.1",
         {
