@@ -1731,7 +1731,7 @@ void ServerSettings::dumpToSystemServerSettingsColumns(ServerSettingColumnsParam
 
             {"merge_workload", {context->getMergeWorkload(), ChangeableWithoutRestart::Yes}},
             {"mutation_workload", {context->getMutationWorkload(), ChangeableWithoutRestart::Yes}},
-            {"license_file", {context->getLicenseFile(), ChangeableWithoutRestart::Yes}},
+
             {"throw_on_unknown_workload", {std::to_string(context->getThrowOnUnknownWorkload()), ChangeableWithoutRestart::Yes}},
             {"cpu_slot_preemption", {std::to_string(context->getCPUSlotPreemption()), ChangeableWithoutRestart::Yes}},
             {"cpu_slot_quantum_ns", {std::to_string(context->getCPUSlotQuantum()), ChangeableWithoutRestart::Yes}},
@@ -1770,10 +1770,6 @@ void ServerSettings::dumpToSystemServerSettingsColumns(ServerSettingColumnsParam
              {getFetchPartitionThreadPool().isInitialized() ? std::to_string(getFetchPartitionThreadPool().get().getMaxThreads()) : "0", ChangeableWithoutRestart::Yes}},
             {"max_active_parts_loading_thread_pool_size",
              {getActivePartsLoadingThreadPool().isInitialized() ? std::to_string(getActivePartsLoadingThreadPool().get().getMaxThreads()) : "0", ChangeableWithoutRestart::Yes}},
-            {"max_snapshot_commit_thread_pool_size",
-             {getSnapshotCommitThreadPool().isInitialized() ? std::to_string(getSnapshotCommitThreadPool().get().getMaxThreads()) : "0", ChangeableWithoutRestart::Yes}},
-            {"max_snapshot_commit_thread_pool_free_size",
-             {getSnapshotCommitThreadPool().isInitialized() ? std::to_string(getSnapshotCommitThreadPool().get().getMaxFreeThreads()) : "0", ChangeableWithoutRestart::Yes}},
             {"max_outdated_parts_loading_thread_pool_size",
              {getOutdatedPartsLoadingThreadPool().isInitialized() ? std::to_string(getOutdatedPartsLoadingThreadPool().get().getMaxThreads()) : "0", ChangeableWithoutRestart::Yes}},
             {"max_parts_cleaning_thread_pool_size",
